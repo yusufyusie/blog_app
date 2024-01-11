@@ -16,6 +16,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
+  port: 5432
   username: user
   password: user
   # For details on connection pooling, see Rails configuration guide
@@ -25,6 +26,8 @@ default: &default
 development:
   <<: *default
   database: blog_app_development
+  host: localhost
+  port: 5432
   username: user
   password: user
 
@@ -61,6 +64,8 @@ development:
 test:
   <<: *default
   database: blog_app_test
+  host: localhost
+  port: 5432
   username: user
   password: user
 
