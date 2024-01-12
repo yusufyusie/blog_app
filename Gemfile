@@ -4,6 +4,16 @@ ruby '3.2.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 5.1.2'  # Replace with the desired version
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
