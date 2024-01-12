@@ -13,6 +13,7 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'shoulda-matchers'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
