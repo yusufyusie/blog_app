@@ -15,7 +15,7 @@ RSpec.describe Comment, type: :model do
 
   describe 'Methods' do
     describe '#update_post_comments_counter' do
-      it 'increases the post\'s comments_counter by 1' do
+      it 'increases the posts comments_counter by 1' do
         post = Post.new(comments_counter: 0)
         post.save
         comment = Comment.new(post:)

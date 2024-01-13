@@ -14,7 +14,7 @@ RSpec.describe Like, type: :model do
 
   describe 'Methods' do
     describe '#update_post_likes_counter' do
-      it 'increases the post\'s likes_counter by 1' do
+      it 'increases the posts likes_counter by 1' do
         post = Post.new(likes_counter: 0)
         post.save
         like = Like.new(post:)
@@ -23,7 +23,6 @@ RSpec.describe Like, type: :model do
         starting_likes_counter = post.likes_counter
         like.update_post_likes_counter
         ending_likes_counter = post.likes_counter
-
         expect(ending_likes_counter - starting_likes_counter).to eq(0)
       end
     end

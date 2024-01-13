@@ -27,7 +27,7 @@ RSpec.describe Post, type: :model do
 
   describe 'Methods' do
     describe '#update_user_posts_counter' do
-      it 'increases the author\'s posts_counter by 1' do
+      it 'increases the authors posts_counter by 1' do
         user = User.new(posts_counter: 0)
         user.save
         post = Post.new(author: user)
