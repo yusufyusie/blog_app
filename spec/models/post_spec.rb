@@ -1,34 +1,60 @@
-require 'shoulda/matchers'
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
- # Validation specs
- it { should validate_presence_of(:title) }
- it { should validate_length_of(:title).is_at_most(250) }
- it { should validate_numericality_of(:comments_counter).is_greater_than_or_equal_to(0) }
- it { should validate_numericality_of(:likes_counter).is_greater_than_or_equal_to(0) }
+  # Validation specs
+  it 'should validate presence of title' do
+    post = Post.new(title: '')
+    expect(post.valid?).to be false
+    expect(post.errors[:title]).to include("can't be blank")
+  end
 
- # Method specs
- describe '#update_user_posts_counter' do
-   it 'updates the posts counter for the associated user' do
-     user = create(:user, posts_counter: 0)
-     post = create(:post, user: user)
+  it 'should validate length of title to be at most 250 characters' do
+    post = Post.new(title: 'a' * 251)
+    expect(post.valid?).to be false
+    expect(post.errors[:title]).to include('is too long (maximum is 250 characters)')
+  end
 
-     post.update_user_posts_counter
-     user.reload
+  it 'should validate comments_counter to be an integer greater than or equal to 0' do
+    post = Post.new(comments_counter: -1)
+    expect(post.valid?).to be false
+    expect(post.errors[:comments_counter]).to include('must be greater than or equal to 0')
+  end
 
-     expect(user.posts_counter).to eq(1)
-   end
- end
+  it 'should validate likes_counter to be an integer greater than or equal to 0' do
+    post = Post.new(likes_counter: -1)
+    expect(post.valid?).to be false
+    expect(post.errors[:likes_counter]).to include('must be greater than or equal to 0')
+  end
 
- describe '#recent_comments' do
-   it 'returns the 5 most recent comments for the post' do
-     post = create(:post)
-     create_list(:comment, 10, post: post)
+  # Methods
+  describe 'Methods' do
+    describe '#update_user_posts_counter' do
+      it 'increases the author\'s posts_counter by 1' do
+        user = User.new(posts_counter: 0)
+        user.save  # Save the user before updating counter
 
-     recent_comments = post.recent_comments
-     expect(recent_comments.length).to eq(5)
-     expect(recent_comments).to eq(post.comments.order(created_at: :desc).limit(5))
-   end
- end
+        post = Post.new(author: user)
+
+        starting_posts_counter = user.posts_counter
+        post.update_user_posts_counter
+        ending_posts_counter = user.posts_counter
+
+        expect(ending_posts_counter).to eq(starting_posts_counter + 1)
+      end
+    end
+
+    describe '#recent_comments' do
+      it 'returns the specified number of most recent comments' do
+        post = Post.new
+        10.times do |i|
+          comment = Comment.create(post: post, text: "Comment #{i}")
+          comment.save  # Save each comment
+        end
+
+        recent_comments = post.recent_comments(5)
+        expect(recent_comments.length).to eq(5)
+        expect(recent_comments.first.text).to eq('Comment 9')
+      end
+    end
+  end
 end
