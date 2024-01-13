@@ -30,12 +30,12 @@ RSpec.describe Post, type: :model do
       it 'increases the author\'s posts_counter by 1' do
         user = User.new(posts_counter: 0)
         user.save
-
         post = Post.new(author: user)
 
         starting_posts_counter = user.posts_counter
         post.update_user_posts_counter
         ending_posts_counter = user.posts_counter
+        expect(ending_posts_counter - starting_posts_counter).to eq(0)
       end
     end
 
@@ -48,20 +48,8 @@ RSpec.describe Post, type: :model do
         end
 
         recent_comments = post.recent_comments(5)
+        expect(recent_comments.length).to eq(5)
       end
-    end
-  end
-
-  describe '#update_user_posts_counter' do
-    it 'increases the author\'s posts_counter by 1' do
-      user = User.new(posts_counter: 0)
-      user.save
-      post = Post.new(author: user)
-
-      starting_posts_counter = user.posts_counter
-      post.update_user_posts_counter
-      ending_posts_counter = user.posts_counter
-      expect(ending_posts_counter - starting_posts_counter).to eq(0)
     end
   end
 end
