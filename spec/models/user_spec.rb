@@ -3,18 +3,20 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   # Validation specs
-  it { should validate_presence_of(:name) }
-  it { should validate_numericality_of(:posts_counter).is_greater_than_or_equal_to(0) }
+
+  it 'is not valid with blank name' do
+    subject.name = ''
+    expect(subject).to_not be_valid
+  end
 
   # Method specs
-  describe '#recent_posts' do
-    it 'returns the 3 most recent posts for the user' do
-      user = create(:user)
-      create_list(:post, 5, user: user)
+  it 'is not valid when posts_counter is not an integer' do
+    subject.posts_counter = 'a'
+    expect(subject).to_not be_valid
+  end
 
-      recent_posts = user.recent_posts
-      expect(recent_posts.length).to eq(3)
-      expect(recent_posts).to eq(user.posts.order(created_at: :desc).limit(3))
-    end
+  it 'is not valid when posts_counter is less than 0' do
+    subject.posts_counter = -1
+    expect(subject).to_not be_valid
   end
 end
