@@ -5,12 +5,15 @@ ruby '3.2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
+  gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails', '~> 5.1.2' # Replace with the desired version
 end
 
 group :test do
+  gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 gem 'shoulda-matchers'
@@ -57,11 +60,6 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri windows]
-end
-
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
@@ -71,10 +69,4 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-end
-
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
 end
