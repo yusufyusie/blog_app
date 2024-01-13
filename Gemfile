@@ -5,7 +5,7 @@ ruby '3.2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 5.1.2'  # Replace with the desired version
+  gem 'rspec-rails', '~> 5.1.2' # Replace with the desired version
 end
 
 group :test do

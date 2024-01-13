@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  # Validation specs
   it 'should validate presence of title' do
     post = Post.new(title: '')
     expect(post.valid?).to be false
@@ -26,12 +25,11 @@ RSpec.describe Post, type: :model do
     expect(post.errors[:likes_counter]).to include('must be greater than or equal to 0')
   end
 
-  # Methods
   describe 'Methods' do
     describe '#update_user_posts_counter' do
       it 'increases the author\'s posts_counter by 1' do
         user = User.new(posts_counter: 0)
-        user.save # Save the user before updating counter
+        user.save
 
         post = Post.new(author: user)
 
@@ -45,8 +43,8 @@ RSpec.describe Post, type: :model do
       it 'returns the specified number of most recent comments' do
         post = Post.new
         10.times do |i|
-          comment = Comment.create(post: post, text: "Comment #{i}")
-          comment.save # Save each comment
+          comment = Comment.create(post:, text: "Comment #{i}")
+          comment.save
         end
 
         recent_comments = post.recent_comments(5)
@@ -54,18 +52,16 @@ RSpec.describe Post, type: :model do
     end
   end
 
-   describe '#update_user_posts_counter' do
-      it 'increases the author\'s posts_counter by 1' do
-        user = User.new(posts_counter: 0)
-        user.save # Save the user before updating counter
+  describe '#update_user_posts_counter' do
+    it 'increases the author\'s posts_counter by 1' do
+      user = User.new(posts_counter: 0)
+      user.save
+      post = Post.new(author: user)
 
-        post = Post.new(author: user)
-
-        starting_posts_counter = user.posts_counter
-        post.update_user_posts_counter
-        ending_posts_counter = user.posts_counter
-
-        expect(ending_posts_counter - starting_posts_counter).to eq(0)
-      end
+      starting_posts_counter = user.posts_counter
+      post.update_user_posts_counter
+      ending_posts_counter = user.posts_counter
+      expect(ending_posts_counter - starting_posts_counter).to eq(0)
     end
+  end
 end

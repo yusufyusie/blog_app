@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  # Validation specs
   describe 'Validations' do
     context 'when user and post are not associated' do
       it 'should not be saved' do
@@ -18,8 +17,8 @@ RSpec.describe Like, type: :model do
       it 'increases the post\'s likes_counter by 1' do
         post = Post.new(likes_counter: 0)
         post.save
-        like = Like.new(post: post)
-        like.save # Save the like before updating counter
+        like = Like.new(post:)
+        like.save
 
         starting_likes_counter = post.likes_counter
         like.update_post_likes_counter

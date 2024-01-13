@@ -18,13 +18,12 @@ RSpec.describe Comment, type: :model do
       it 'increases the post\'s comments_counter by 1' do
         post = Post.new(comments_counter: 0)
         post.save
-        comment = Comment.new(post: post)
+        comment = Comment.new(post:)
         comment.save
 
         starting_comments_counter = post.comments_counter
         comment.update_post_comments_counter
         ending_comments_counter = post.comments_counter
-
         expect(ending_comments_counter - starting_comments_counter).to eq(0)
       end
     end
