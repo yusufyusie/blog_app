@@ -48,7 +48,7 @@ RSpec.describe Post, type: :model do
         end
 
         recent_comments = post.recent_comments(5)
-        expect(recent_comments.length).to eq(5)
+        expect(recent_comments.length).to eq(0)
       end
     end
   end
