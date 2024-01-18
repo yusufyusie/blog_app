@@ -24,12 +24,12 @@ RSpec.describe 'Posts', type: :request do
   end
 
   context 'GET /show' do
-    let(:user) { User.create(name: 'Tom') }
-    let(:valid_attributes) { { 'author' => user, 'title' => 'Title' } }
-    let(:post) { Post.create! valid_attributes }
-
+    let(:valid_attributes) { { 'name' => 'Tom', 'photo' => 'https://example.com/image.jpg' } }
+    let(:valid_attribute) { { 'author' => user, 'title' => 'Title', 'text' => 'text' } }
+    let(:user) { User.create! valid_attributes }
+    let(:post) { Post.create! valid_attribute}
     before :each do
-      get "/users/:user_id/posts/#{post.id}"
+      get user_post_url(user, post)
     end
 
     it 'returns successful response' do
@@ -45,7 +45,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders the right placeholder' do
-      expect(response.body).to include('<h1>Here is a selected post for a given user</h1>')
+      expect(response.body).to include('<h1>Here is a selected post with for a given user</h1>')
     end
   end
 end
