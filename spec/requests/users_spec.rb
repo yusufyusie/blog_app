@@ -14,17 +14,17 @@ RSpec.describe 'Users', type: :request do
       expect(response.status).to eq(200)
     end
 
-    it 'renders the right view file' do
+    it 'renders the index template' do
       expect(response).to render_template(:index)
     end
 
-    it 'renders the right placeholder' do
+    it 'renders the right placeholder text in the response body' do
       expect(response.body).to include('<h1>Here is a list of users</h1>')
     end
   end
 
   context 'GET /show' do
-    let(:valid_attributes) { { 'name' => 'Tom' } }
+    let(:valid_attributes) { { 'name' => 'Tom', 'photo' => 'https://example.com/image.jpg' } }
     let(:user) { User.create! valid_attributes }
     before :each do
       get user_url(user)
