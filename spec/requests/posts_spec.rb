@@ -27,7 +27,7 @@ RSpec.describe 'Posts', type: :request do
     let(:valid_attributes) { { 'name' => 'Tom', 'photo' => 'https://example.com/image.jpg' } }
     let(:valid_attribute) { { 'author' => user, 'title' => 'Title', 'text' => 'text' } }
     let(:user) { User.create! valid_attributes }
-    let(:post) { Post.create! valid_attribute}
+    let(:post) { Post.create! valid_attribute }
     before :each do
       get user_post_url(user, post)
     end
