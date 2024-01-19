@@ -25,7 +25,6 @@ gem 'letter_opener_web', group: :development
 
 gem 'kaminari'
 
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
