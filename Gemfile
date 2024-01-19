@@ -25,7 +25,7 @@ gem 'letter_opener_web', group: :development
 
 gem 'kaminari'
 
-gem "will_paginate", "~> 4.0"
+gem 'will_paginate', '~> 4.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
