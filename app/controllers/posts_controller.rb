@@ -17,24 +17,24 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-      if @post.save
-          flash[:success] = 'Post created successfully!'
-          redirect_to user_posts_url
-        else
-          render :new, status: :unprocessable_entity
-        end
-      end
+    if @post.save
+      flash[:success] = 'Post created successfully!'
+      redirect_to user_posts_url
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
-      # ... other actions like edit, update, destroy
-      private def set_user
-        @user = User.find(params[:user_id])
-      end
+  # ... other actions like edit, update, destroy
+  private def set_user
+    @user = User.find(params[:user_id])
+  end
 
-      def set_post
-        @post = Post.find(params[:id])
-      end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-      def post_params
-        params.require(:post).permit(:title, :text)
-      end
-   end
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
+end
