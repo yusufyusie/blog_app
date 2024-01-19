@@ -20,6 +20,10 @@ gem 'shoulda-matchers'
 
 gem 'rails-controller-testing'
 
+# Letter Opener: Preview email in the browser instead of sending it [
+gem 'letter_opener_web', group: :development
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
