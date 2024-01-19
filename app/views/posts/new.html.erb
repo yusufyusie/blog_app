@@ -1,0 +1,18 @@
+<main class="page" id="post-form-page">
+  <h1>Create a New Post</h1>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>  <% end %>
+
+  <%= form_with model: [:user, @post], data: { turbo: false }, local: true do |f| %>
+    <div class="post-inputs">
+      <%= f.label :title %>
+      <%= f.text_field :title, required: true, pattern: ".{5,}", title: "Title must be at least 5 characters", placeholder: "Enter Post Title" %>
+    </div>
+    <div class="post-inputs">
+      <%= f.label :text %>
+      <%= f.text_area :text, required: true, pattern: ".{5,}", title: "Please fill out this area", placeholder: "Enter Text" %>
+    </div>
+    <%= f.submit "Create Post" %>
+  <% end %>
+</main>

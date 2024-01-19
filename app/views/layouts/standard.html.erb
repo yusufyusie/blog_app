@@ -13,7 +13,17 @@
         <%= javascript_importmap_tags %>
     </head>
     <body>
-       
+       <main class="page" id="post-form-page">
+  <div id="user-page">
+    <div class="btn-container">
+      <%= link_to "Home", root_path %>  <div class="back-link-container">
+        <%= link_to "Back", :back, class: "back-link" %>
+      </div>
+      <div class="users-link-container">
+        <%= link_to "Users", users_path, class: "users-link" %>
+      </div>
+    </div>
+  </div>
       <section class = "container">
         <%= yield -%>
       </section>
