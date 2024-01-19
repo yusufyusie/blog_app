@@ -79,4 +79,4 @@ group :development do
   # gem "spring"
 end
 
-gem "letter_opener", "~> 1.8"
+gem 'letter_opener', '~> 1.8'
