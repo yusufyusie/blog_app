@@ -357,6 +357,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kaminari
+  letter_opener (~> 1.8)
   letter_opener_web
   pg (~> 1.1)
   puma (>= 5.0)
