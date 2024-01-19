@@ -147,16 +147,19 @@ h3 {
   color: rgb(159, 154, 231);
 }
 
+#comment-form-page,
 #post-form-page {
   background-color: #fff;
   border-radius: 5px;
   padding: 2rem;
 }
 
+#comment-form-page,
 #post-form-page h1 {
   margin-bottom: 1rem;
 }
 
+#comment-form-page,
 #post-form-page .success,
 #post-form-page .error {
   border: 1px solid #ccc;

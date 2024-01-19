@@ -1,4 +1,4 @@
-<main id="form-page">
+<main id="comment-form-page">
   <div id="form-container">
     <h1>Add a Comment</h1>
 
@@ -7,9 +7,10 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name %>
       <% end %>
-
+      <div class="post-inputs">
       <%= f.label :text, "Comment" %>
       <%= f.text_area :text, resize: "none", required: true, placeholder: "Enter your comment" %>
+      </div>
       <%= f.submit "Add Comment" %>
     </div>
     <% end %>
