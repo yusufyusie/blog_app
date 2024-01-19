@@ -1,0 +1,9 @@
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
+
+<%= form_with model: [@user, @post, @like], data: { turbo: false }, local: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit "Like this post" %>
+<% end %>
