@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Posts</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-    <h1>Here is a selected user</h1>
+<section class="user-profile">
+  <section class="user-details">
+    <h2 class="user-name"><%= @user.name %></h2>
+    <%= render partial: "users/user_info", locals: { user: @user } %>
+  </section>
 
-        <script src="" async defer></script>
-    </body>
-</html>
+  <section class="user-bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </section>
+
+  <section class="recent-posts">
+    <h3>Recent Posts</h3>
+    <ul>
+      <% @user.recent_posts.each_with_index do |post, i| %>
+        <li class="post-item">
+            <%= link_to "/users/#{@user.id}/posts/#{post.id}", id: "post" do %>
+             <%= render partial: "posts/post_info", locals: { post: post } %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "See all posts", "/users/#{@user.id}/posts?page=1", class: "see-all-posts" %>
+  </section>
+</section>

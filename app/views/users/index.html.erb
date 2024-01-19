@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Posts</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <script src="" async defer></script>
-    <h1>Here is a list of users</h1>
-    </body>
-</html>
+<% if @users.any? %>
+  <ul>  <% @users.each do |user| %>
+      <li>
+        <%= link_to user_url(user), id: "user_container" do %> 
+        <%= render partial: "users/user_info", locals: { user: user } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="no-users">No users found.</p> <% end %>
