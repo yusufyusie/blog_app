@@ -1,20 +1,25 @@
-<div id="user_container">
-  <%= render partial: "users/user_info", locals: { user: @user } %>
-</div>
+<section class="user-profile">
+  <section class="user-details">
+    <h2 class="user-name"><%= @user.name %></h2>
+    <%= render partial: "users/user_info", locals: { user: @user } %>
+  </section>
 
-<div id="user_bio">
-  <h3>Bio</h3>
-  <p><%= @user.bio %></p>
-</div>
+  <section class="user-bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </section>
 
-<div id="post_container">
-  <% @user.recent_posts.each_with_index do |post, i| %>
-    <li>
-      <%= link_to "/users/#{@user.id}/posts/#{post.id}", id: "post" do %>
-        <%= render partial: "posts/post_info", locals: { post: post } %>
+  <section class="recent-posts">
+    <h3>Recent Posts</h3>
+    <ul>
+      <% @user.recent_posts.each_with_index do |post, i| %>
+        <li class="post-item">
+            <%= link_to "/users/#{@user.id}/posts/#{post.id}", id: "post" do %>
+             <%= render partial: "posts/post_info", locals: { post: post } %>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</div>
-
-<%= link_to "See all posts", "/users/#{@user.id}/posts?page=1" %>
+    </ul>
+    <%= link_to "See all posts", "/users/#{@user.id}/posts?page=1", class: "see-all-posts" %>
+  </section>
+</section>

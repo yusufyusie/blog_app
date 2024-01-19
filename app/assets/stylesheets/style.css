@@ -22,20 +22,21 @@
     display: block;
   }
   
-  #container {
+  .container {
     background-color: rgb(77, 76, 76);
     padding: 1.5rem;
     min-height: 100vh;
   }
   
-  #container,
-  #post_container {
+  .container,
+  .recent-posts {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-  
-  #user_container {
+
+  #user_container,
+  .user-details {
     display: flex;
     height: 5rem;
   }
@@ -58,7 +59,7 @@
     color: rgb(240, 240, 240);
   }
   
-  #user_bio,
+  .user_bio,
   #post,
   #comment_container {
     padding: 0.5rem;
