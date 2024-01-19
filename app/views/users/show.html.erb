@@ -8,7 +8,7 @@
 </div>
 
 <div id="post_container">
-  <% @user.three_recent_posts.each_with_index do |post, i| %>
+  <% @user.recent_posts.each_with_index do |post, i| %>
     <li>
       <%= link_to "/users/#{@user.id}/posts/#{post.id}", id: "post" do %>
         <%= render partial: "posts/post_info", locals: { post: post } %>
