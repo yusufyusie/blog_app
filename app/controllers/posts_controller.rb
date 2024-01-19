@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   # ... other actions like edit, update, destroy
-  private def set_user
+  def set_user
     @user = User.find(params[:user_id])
   end
 
