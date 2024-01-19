@@ -1,16 +1,19 @@
+<a name="readme-top"></a>
+
 <h3 align="center"><b>Blog App</b></h3>
 
 <p align="center">Blog App is a classic example of a blog website. It is a fully functional website that shows the list of posts and empowers readers to interact with them by adding comments and liking posts.</p>
 
-<a name="readme-top"></a>
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 My-Blog-Appp ](#-My-Blog-App-)
   - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-- [💻 Getting Started](#getting-started)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+    - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
   - [Install](#install)
@@ -53,7 +56,7 @@
   </ul>
 </details>
 
-### Key Features <a name="key-features"></a>
+### Key Features <a name="key-features">
 
 - **authentication and authorization**
 
