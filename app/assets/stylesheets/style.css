@@ -110,3 +110,92 @@ h3 {
 #comment {
   font-style: italic;
 }
+
+#comment_container {
+  padding: 1rem;
+}
+
+.btn-container {
+  background-color: rgb(77, 76, 76);
+  color: rgb(209, 209, 209);
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2rem;
+}
+
+.btn-container a {
+  color: rgb(209, 209, 209);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.btn-container {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(94, 95, 97);
+}
+
+.back-link-container,
+.users-link-container {
+  margin: 0 0.5rem;
+}
+
+.btn-container a:hover {
+  background-color: rgb(47, 48, 49);
+  color: rgb(159, 154, 231);
+}
+
+/* Main container */
+#post-form-page {
+  background-color: #fff; /* White background for contrast */
+  border-radius: 5px; /* Softer corners */
+  padding: 2rem; /* Add padding for spacing */
+}
+
+/* Heading */
+#post-form-page h1 {
+  margin-bottom: 1rem; /* Space below heading */
+}
+
+/* Flash messages (adjust colors as needed) */
+#post-form-page .success,
+#post-form-page .error {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Form inputs */
+.post-inputs {
+  margin-bottom: 1rem; /* Space between inputs */
+}
+
+.post-inputs label {
+  font-weight: bold; /* Emphasize labels */
+  display: block; /* Display labels on separate lines */
+  margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+.post-inputs input,
+.post-inputs textarea {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  width: 100%; /* Full width inputs */
+}
+
+/* Submit button */
+.post-inputs input[type="submit"] {
+  background-color: rgb(47, 48, 49);
+  color: rgb(209, 209, 209);
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer; /* Indicate interactivity */
+}
+
+.post-inputs input[type="submit"]:hover {
+  background-color: rgb(59, 58, 71); /* Darker hover color */
+}
+
+
