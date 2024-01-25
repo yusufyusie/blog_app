@@ -12,7 +12,7 @@
   <section class="recent-posts">
     <h3>Recent Posts</h3>
     <ul>
-      <% @user.recent_posts.each_with_index do |post, i| %>
+      <% @user.recent_posts.includes(:comments, :author).each do |post| %>
         <li class="post-item">
             <%= link_to "/users/#{@user.id}/posts/#{post.id}", id: "post" do %>
              <%= render partial: "posts/post_info", locals: { post: post } %>
