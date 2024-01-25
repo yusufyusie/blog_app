@@ -7,6 +7,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails', '~> 5.1.2' # Replace with the desired version
+  gem 'rails-controller-testing'
 end
 
 group :test do
@@ -75,6 +76,7 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
+  gem 'bullet'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
