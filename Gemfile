@@ -82,3 +82,6 @@ end
 gem 'letter_opener', '~> 1.8'
 
 gem 'prettier', '~> 4.0'
+
+gem 'devise'
+
