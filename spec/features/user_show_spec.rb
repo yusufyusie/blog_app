@@ -120,17 +120,17 @@ RSpec.describe 'When I open user show page', type: :system do
       sleep(1)
       expect(page).to have_current_path(user_post_path(@first_user, @latest_post))
     end
-end
-
-context 'When I click to see all posts' do
-  it "redirects me to the user's post's index page" do
-    visit users_path
-    sleep(1)
-    click_link(@first_user.name)
-    sleep(1)
-    click_link('See all posts')
-    sleep(1)
-    expect(page).to have_current_path("/users/#{@first_user.id}/posts?page=1")
   end
-end
+
+  context 'When I click to see all posts' do
+    it "redirects me to the user's post's index page" do
+      visit users_path
+      sleep(1)
+      click_link(@first_user.name)
+      sleep(1)
+      click_link('See all posts')
+      sleep(1)
+      expect(page).to have_current_path("/users/#{@first_user.id}/posts?page=1")
+    end
+  end
 end

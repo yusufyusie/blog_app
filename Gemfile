@@ -6,8 +6,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
-  gem 'rspec-rails', '~> 5.1.2' # Replace with the desired version
   gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 5.1.2' # Replace with the desired version
 end
 
 group :test do
@@ -83,4 +83,4 @@ end
 
 gem 'letter_opener', '~> 1.8'
 
-gem "prettier", "~> 4.0"
+gem 'prettier', '~> 4.0'

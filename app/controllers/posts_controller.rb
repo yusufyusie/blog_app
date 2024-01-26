@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:comments).where(author_id: params[:user_id]).order(id: :asc).paginate(page: params[:page], per_page: 3)
+    @posts = Post.includes(:comments).where(author_id: params[:user_id]).order(id: :asc).paginate(page: params[:page],
+                                                                                                  per_page: 3)
   end
 
   def show
