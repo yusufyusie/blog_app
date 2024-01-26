@@ -19,7 +19,6 @@ end
 
 gem 'shoulda-matchers'
 
-gem 'rails-controller-testing'
 
 # Letter Opener: Preview email in the browser instead of sending it [
 gem 'letter_opener_web', group: :development
