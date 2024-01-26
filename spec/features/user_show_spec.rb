@@ -91,4 +91,14 @@ RSpec.describe 'When I open user show page', type: :system do
     sleep(1)
     expect(page).to have_content('Singer from Mexico.')
   end
+
+  it "shows the user's latest 3 posts" do
+    visit users_path
+    sleep(1)
+    click_link(@first_user.name)
+    sleep(1)
+    expect(page).to have_content('Post4')
+    expect(page).to have_content('Post3')
+    expect(page).to have_content('Post2')
+  end
 end
