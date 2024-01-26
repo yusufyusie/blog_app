@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe User, type: :system do
-  subject { User.new(name: 'Tom', posts_counter: 3, photo: 'https://randomuser.me/api/portraits/men/41.jpg', bio: 'LIVE EDITOR') }
+  subject { User.new(name: 'Tom', posts_counter: 3, photo: 'https://randomuser.me/api/portraits/men/41.jpg', bio: 'Live Editor from Ethiopia.') }
   before { subject.save }
   describe 'index page' do
     it 'I can see the username of all other users.' do
