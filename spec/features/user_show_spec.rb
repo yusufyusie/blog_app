@@ -101,4 +101,36 @@ RSpec.describe 'When I open user show page', type: :system do
     expect(page).to have_content('Post3')
     expect(page).to have_content('Post2')
   end
+
+  it "shows a button that lets me view all of a user's posts" do
+    visit users_path
+    sleep(1)
+    click_link(@first_user.name)
+    sleep(1)
+    expect(page).to have_link('See all posts', href: "/users/#{@first_user.id}/posts?page=1")
+  end
+
+  context "When I click a user's post" do
+    it "redirects me to that post's show page" do
+      visit users_path
+      sleep(1)
+      click_link(@first_user.name)
+      sleep(1)
+      click_link('Post4')
+      sleep(1)
+      expect(page).to have_current_path(user_post_path(@first_user, @latest_post))
+    end
+end
+
+context 'When I click to see all posts' do
+  it "redirects me to the user's post's index page" do
+    visit users_path
+    sleep(1)
+    click_link(@first_user.name)
+    sleep(1)
+    click_link('See all posts')
+    sleep(1)
+    expect(page).to have_current_path("/users/#{@first_user.id}/posts?page=1")
+  end
+end
 end
