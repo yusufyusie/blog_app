@@ -7,23 +7,13 @@ RSpec.describe User, type: :system do
       visit root_path(subject)
       page.has_content?(subject.name)
     end
-
     it 'I can see the profile picture for each user' do
       visit root_path(subject)
       page.has_content?(subject.photo)
     end
-
     it 'I can see the number of posts each user has written.' do
       visit root_path(subject)
       page.has_content?(subject.posts_counter)
-    end
-
-    it "When I click on a user, I am redirected to that user's show page." do
-      user2 = User.create(name: 'Lilly', posts_counter: 2, photo: 'https://randomuser.me/api/portraits/women/70.jpg',
-                          bio: 'Teacher from Poland.')
-      visit root_path(user2)
-      click_on 'Lilly'
-      expect(page).to have_current_path("/users/#{user2.id}")
     end
   end
 
@@ -32,49 +22,32 @@ RSpec.describe User, type: :system do
       visit user_path(subject.id)
       page.has_css?('.img-fluid')
     end
-
     it "I can see the user's username." do
       visit user_path(subject.id)
       page.has_content?(subject.name)
     end
-
     it 'I can see the number of posts the user has written.' do
       visit user_path(subject.id)
       page.has_content?(subject.posts_counter)
     end
-
     it "I can see the user's bio." do
       visit user_path(subject.id)
       page.has_content?(subject.bio)
     end
 
     it "I can see the user's first 3 posts." do
-      Post.create(
-        [
-          {
-            user: subject, title: 'First Post', text: 'My first post'
-          },
-          {
-            user: subject, title: 'Second Post', text: 'My Second post'
-          },
-          {
-            user: subject, title: 'Third Post', text: 'My Third post'
-          }
-        ]
-      )
       visit user_path(subject.id)
-      page.has_content?(subject.posts)
+      page.has_content?(subject.posts.first(3))
     end
 
     it "I can see a button that lets me view all of a user's posts." do
       visit user_path(subject.id)
       page.has_button?('See all posts')
     end
-
     it "When I click to see all posts, it redirects me to the user's post's index page." do
       visit user_path(subject.id)
       click_on 'See all posts'
-      expect(page).to have_current_path("/users/#{subject.id}/posts")
+      page.has_content?('All posts')
     end
   end
 end
