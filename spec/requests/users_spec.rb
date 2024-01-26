@@ -18,8 +18,8 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'renders the right placeholder text in the response body' do
-      expect(response.body).to include('<h1>Here is a list of users</h1>')
+    it 'renders the right placeholder' do
+      expect(response.body).to include('<h2>Tom</h2>')
     end
   end
 
@@ -43,7 +43,9 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders the right placeholder' do
-      expect(response.body).to include('<h1>Here is a selected user</h1>')
+      expect(response.body).to include('<h2>Tom</h2>')
+      expect(response.body).to include('<p>Number of posts: 0</p>')
+      expect(response.body).to include('<h3>Bio</h3>')
     end
   end
 end

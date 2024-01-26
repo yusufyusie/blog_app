@@ -6,6 +6,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.1.2' # Replace with the desired version
 end
 
@@ -17,8 +18,6 @@ group :test do
 end
 
 gem 'shoulda-matchers'
-
-gem 'rails-controller-testing'
 
 # Letter Opener: Preview email in the browser instead of sending it [
 gem 'letter_opener_web', group: :development
@@ -75,8 +74,11 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
+  gem 'bullet'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
 
 gem 'letter_opener', '~> 1.8'
+
+gem 'prettier', '~> 4.0'
