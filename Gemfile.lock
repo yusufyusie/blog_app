@@ -80,6 +80,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bigdecimal (3.1.5)
     bindex (0.8.1)
     bootsnap (1.17.0)
@@ -138,6 +139,12 @@ GEM
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.5.0)
     drb (2.2.0)
       ruby2_keywords
@@ -215,6 +222,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.24.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -282,6 +290,9 @@ GEM
     regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.2.6)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
@@ -316,6 +327,14 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -358,6 +377,8 @@ GEM
       tzinfo (>= 1.0.0)
     unicode-display_width (2.5.0)
     uniform_notifier (1.16.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -384,6 +405,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   debug
+  devise
   importmap-rails
   jbuilder
   kaminari
@@ -396,6 +418,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (~> 5.1.2)
   rubocop (>= 1.0, < 2.0)
+  sassc-rails
   selenium-webdriver
   shoulda-matchers
   sprockets-rails
