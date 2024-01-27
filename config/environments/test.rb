@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require 'bullet'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -6,19 +7,20 @@ require "active_support/core_ext/integer/time"
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-  # Configure 'rails notes' to inspect Cucumber files
-  config.annotations.register_directories('features')
-  config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
+  config.after_initialize do
+    Bullet.enable        = true
+    Bullet.bullet_logger = true
+    Bullet.raise         = true # raise an error if n+1 query occurs
+  end
 
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # While tests run files are not watched, reloading is not necessary.
-  config.enable_reloading = false
+  # Turn false under Spring and add config.action_view.cache_template_loading = true.
+  config.cache_classes = true
 
-  # Eager loading loads your entire application. When running a single test locally,
-  # this is usually not necessary, and can slow down your test suite. However, it's
-  # recommended that you enable it in continuous integration systems to ensure eager
-  # loading is working properly before deploying your code.
+  # Eager loading loads your whole application. When running a single test locally,
+  # this probably isn't necessary. It's a good idea to do in a continuous integration
+  # system, or in some way before deploying your code.
   config.eager_load = ENV["CI"].present?
 
   # Configure public file server for tests with Cache-Control for performance.
@@ -28,18 +30,19 @@ Rails.application.configure do
   }
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
   config.cache_store = :null_store
 
-  # Render exception templates for rescuable exceptions and raise for other exceptions.
-  config.action_dispatch.show_exceptions = :rescuable
+  # Raise exceptions instead of rendering exception templates.
+  config.action_dispatch.show_exceptions = false
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.action_mailer.perform_caching = false
 
@@ -62,7 +65,4 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-
-  # Raise error when a before_action's only/except options reference missing actions
-  config.action_controller.raise_on_missing_callback_actions = true
 end
