@@ -10,6 +10,8 @@
       <div class="post-inputs">
       <%= f.label :text, "Comment" %>
       <%= f.text_area :text, resize: "none", required: true, placeholder: "Enter your comment" %>
+       <%= f.hidden_field :user_id, value: params[:user_id] %>
+      <%= f.hidden_field :post_id, value: params[:post_id] %>
       </div>
       <%= f.submit "Add Comment" %>
     </div>
