@@ -103,6 +103,9 @@ git clone https://github.com/yusufyusie/Blog_App.git
 
 cd Blog-App
 ```
+Setup database:
+> sudo -u postgres createuser --interactive --pwprompt
+(provide the username and password described in [config/database.yml](./config/database.yml))
 
 ### Install
 
@@ -150,6 +153,11 @@ To run tests, run the following command:
 
 You can also check linter errors by running these commands:
 > rubocop
+
+For testing the confirmation emails:
+> gem install mailcatcher
+
+Open [http://localhost:1080](http://localhost:1080) to view it in your browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
