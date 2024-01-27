@@ -18,8 +18,6 @@ body {
 }
 
 header {
-  background-color: $dark-background;
-  padding: 0.5rem 1.5rem;
   text-align: right;
 }
 
@@ -290,4 +288,23 @@ h3 {
 .alert,
 .notice {
   color: $purple-light;
+}
+
+#user_photo {
+  height: 5rem;
+  width: 20%;
+}
+
+#user img {
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+
+#user {
+  position: relative;
+  display: flex;
+  height: 5rem;
 }

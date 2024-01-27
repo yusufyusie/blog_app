@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
   layout 'standard'
-
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:comments).where(author_id: params[:user_id]).order(id: :asc).paginate(page: params[:page],
-                                                                                                  per_page: 3)
+    @posts = Post.where(author_id: params[:user_id]).order(id: :asc)
+    @posts = @posts.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -12,29 +11,18 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
+    @post = Post.new
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.new(params.require(:post).permit(:title, :text))
+    @post.author = current_user
     if @post.save
       flash[:success] = 'Post created successfully!'
       redirect_to user_posts_url
     else
-      render :new, status: :unprocessable_entity
+      flash.now[:error] = 'Error: Post could not be created!'
+      render :new, locals: { post: @post }
     end
-  end
-
-  # ... other actions like edit, update, destroy
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-  def post_params
-    params.require(:post).permit(:title, :text)
   end
 end
