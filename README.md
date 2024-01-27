@@ -58,17 +58,17 @@
 ### Key Features <a name="key-features">
 
 - **authentication and authorization**
-
 - **write posts**
-
 - **like posts**
 - **leave comments**
-
 - **Create blog plost**
-
 - **Comment on blog post**
-
 - **Display list of comments**
+- **Add User, Post, Like & Comment**
+- **List all Users, Posts, Likes & Comments**
+- **Sign up**
+- **Log in**
+- **Reset Password**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -80,13 +80,12 @@ To get a local copy up and running follow these simple example steps.
 
 In order to run this project you need:
 
+- Mac or PC
 - Code Editor (Vs Code)
-
 - Terminal
-
-- Install ruby on your computer
-
-- Install rails on your computer
+- Install [ruby 3.2.2](https://www.ruby-lang.org/en/documentation/installation/) on your computer
+- Install [rails](https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm#) on your computer
+- Install [postgreSQL](https://www.postgresql.org/download/) on your computer
 
 Install the dependencies:
 > gem install
@@ -113,14 +112,25 @@ Install this project with:
 cd Blog-App
  bundle install (install all dependencies)
 ```
+- GitHub Actions
+- Linters
+  - Rubocop
+- Ruby On Rails
 
 ### Usage
 
 To run the project, execute the following command:
 
+- Run `bundle install` in the terminal from the root folder of the project.
+- Run `rails db:create` in the terminal from the root folder of the project.
+- Run `rails db:migrate` in the terminal from the root folder of the project.
+- Run the app with `rails c` in the terminal from the root folder of the project.
+- Create a new user
 ```sh
-rails server
+User.create(name: 'Lucas', bio: 'Full stack developer from Namibia', photo: 'https://ca.slack-edge.com/T47CT8XPG-U03PBVD9PAS-26c072588661-512', posts_counter: 0)
 ```
+- Run the server with `rails s` in the terminal from the root folder of the project.
+
 
 ### Test
 
