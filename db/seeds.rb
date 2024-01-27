@@ -10,6 +10,7 @@ first_user = User.create(name: 'Tom', bio: 'Teacher from Mexico.', email: 'tom@e
 second_user = User.create(name: 'Lilly', bio: 'Teacher from Poland.', email: 'lilly@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 third_user = User.create(name: 'Alan', bio: 'Singer from Mexico.', email: 'alan@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 fourth_user = User.create(name: 'Alan', bio: 'Singer from Mexico.', email: 'alan2@example.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+fivth_user = User.create(name: 'Yesuf', bio: 'Software Developer.', email: 'yesuf023@gmail.com', :password => 'yesuf01', :password_confirmation => 'yesuf01')
 
 first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
 second_post = Post.create(author: first_user, title: 'My name is Tom', text: 'This is my second post')
