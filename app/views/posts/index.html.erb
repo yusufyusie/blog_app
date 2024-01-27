@@ -7,7 +7,9 @@
   <%= content_tag :div, msg, class: name %>
 <% end -%>
 
+<% if (can? :create, Post) && current_user.id == @user.id %>
 <%= link_to 'New Post', new_user_post_path %>
+<% end %>
 
 <ul id="post_container">
   <% @posts.each_with_index do |post, i| %>
