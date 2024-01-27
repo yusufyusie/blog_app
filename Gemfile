@@ -88,3 +88,5 @@ gem 'devise'
 gem 'sassc-rails'
 
 gem 'cancancan'
+
+gem 'jwt'
