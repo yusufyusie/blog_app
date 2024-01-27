@@ -327,6 +327,14 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -410,6 +418,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (~> 5.1.2)
   rubocop (>= 1.0, < 2.0)
+  sassc-rails
   selenium-webdriver
   shoulda-matchers
   sprockets-rails

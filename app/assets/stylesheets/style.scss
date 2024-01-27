@@ -1,3 +1,12 @@
+$purple-light: #9b95f5;
+$purple-dark: #4a4763;
+$light-background: #363636;
+$dark-background: #2b2b2b;
+$white-text: #fff;
+$pale-text: #e2e2e2;
+$imortant-text: #2b2b2b;
+$border-grey: #a7a7a7;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +15,12 @@
 
 body {
   font-family: Helvetica, Geneva, Arial, sans-serif;
+}
+
+header {
+  background-color: $dark-background;
+  padding: 0.5rem 1.5rem;
+  text-align: right;
 }
 
 li {
@@ -227,4 +242,52 @@ h3 {
 .see-all-posts {
   color: #9f9aed;
   text-decoration: underline;
+}
+
+#container,
+#welcome {
+  background-color: $light-background;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+#welcome,
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $pale-text;
+}
+
+#login {
+  background-color: $dark-background;
+  border: 1px solid $border-grey;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+#welcome h1 {
+  color: $purple-light;
+  margin-bottom: 2rem;
+}
+
+#welcome h2 {
+  color: $white-text;
+  text-align: center;
+}
+
+#welcome p {
+  font-size: 1.5rem;
+}
+
+#welcome a {
+  display: block;
+  color: $white-text;
+}
+
+.alert,
+.notice {
+  color: $purple-light;
 }
