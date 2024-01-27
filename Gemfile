@@ -86,3 +86,5 @@ gem 'prettier', '~> 4.0'
 gem 'devise'
 
 gem 'sassc-rails'
+
+gem 'cancancan'
