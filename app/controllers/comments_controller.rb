@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def destroy
     @comment = Comment.find(params[:id])
     @comment.post.decrement!(:comments_counter)
