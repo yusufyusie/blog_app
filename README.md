@@ -130,7 +130,6 @@ To run the project, execute the following command:
 - Run the app with `rails c` in the terminal from the root folder of the project.
 - Create a new user
 ```sh
-User.create(name: 'Lucas', bio: 'Full stack developer from Namibia', photo: 'https://ca.slack-edge.com/T47CT8XPG-U03PBVD9PAS-26c072588661-512', posts_counter: 0)
 ```
 - Run the server with `rails s` in the terminal from the root folder of the project.
 
